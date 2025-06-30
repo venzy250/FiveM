@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+#bodycam-ui {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.top-left,
+.top-right {
+  position: absolute;
+  top: 20px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.top-left {
+  left: 20px;
+  text-align: left;
+}
+
+.top-right {
+  right: 20px;
+  text-align: right;
+}
+
+#rec {
+  color: red;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.mic-off {
+  color: gray;
+}
+
+.mic-on {
+  color: limegreen;
+}
