@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Evidence Locker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="department-select">
+    <h2>Select Your Department</h2>
+    <div id="departments"></div>
+  </div>
+
+  <div id="locker-ui" style="display: none;">
+    <div class="tabs">
+      <button onclick="switchTab('view')">View</button>
+      <button onclick="switchTab('submit')">Submit</button>
+      <button onclick="switchTab('log')">Log</button>
+      <button id="export-btn" onclick="exportClipboard()">📋 Export</button>
+      <button onclick="closeUI()">X</button>
+    </div>
+
+    <div class="tab-content" id="view">
+      <input type="text" id="search" placeholder="Search by Evidence ID..." oninput="searchEvidence()" />
+      <div id="evidence-list"></div>
+      <div class="pagination">
+        <button onclick="prevPage()">Previous</button>
+        <span id="page-label">Page 1</span>
+        <button onclick="nextPage()">Next</button>
+      </div>
+    </div>
+
+    <div class="tab-content" id="submit" style="display: none;">
+      <form onsubmit="submitEvidence(event)">
+        <input required placeholder="Officer Name" id="officer" />
+        <input required placeholder="Callsign" id="callsign" />
+        <input required placeholder="Suspect Name" id="suspect" />
+        <input required placeholder="Suspect DOB" id="dob" />
+        <input required placeholder="Item" id="item" />
+        <input required type="number" placeholder="Quantity" id="amount" />
+        <input required placeholder="Evidence ID" id="evidence_id" />
+        <button type="submit">Submit Evidence</button>
+      </form>
+    </div>
+
+    <div class="tab-content" id="log" style="display: none;">
+      <div id="log-output">Feature coming soon...</div>
+    </div>
+  </div>
+
+  <div id="modal" style="display: none;">
+    <div class="modal-content">
+      <h3>Evidence Details</h3>
+      <p id="modal-details"></p>
+      <button id="delete-btn" onclick="deleteEvidence()">Delete</button>
+      <button onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
